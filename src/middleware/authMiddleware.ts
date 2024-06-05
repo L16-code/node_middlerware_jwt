@@ -7,13 +7,16 @@ interface CustomRequest extends Request {
 
 const verifyToken = (req: CustomRequest, res: Response, next: NextFunction): void => {
     const token = req.header('Authorization');
+    // console.log( token)
     if (!token) {
         res.status(401).json({ error: 'Access denied' });
         return;
     }
 
     try {
-        const decoded = jwt.verify(token, '1606');
+        const newToken=token.split(" ")[1];
+        console.log(newToken);
+        const decoded = jwt.verify(newToken, '1606');
         console.log(decoded);
         req.userId = (decoded as JwtPayload).userId;
         next();

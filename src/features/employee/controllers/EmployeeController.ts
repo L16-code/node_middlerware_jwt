@@ -1,5 +1,5 @@
 import express from 'express';
-import { EmployeeModel } from '../db/EmployeeModel';
+import { EmployeeModel } from '../model/EmployeeModel';
 class EmployeeController{
     getAllEmployee=async(request:express.Request, response:express.Response)=>{
         try {

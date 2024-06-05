@@ -1,7 +1,7 @@
 import express from 'express';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import { UserModel } from '../db/UserModel';
+import { UserModel } from '../model/UserModel';
 
 class UserController {
     userRegister = async (request: express.Request, response: express.Response) => {
