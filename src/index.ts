@@ -1,7 +1,6 @@
 import  express from "express";
-import mongoose from "mongoose";
-import router from "./features/employee/employeeRoutes";
-import authRouter from "./features/auth/authRoutes";
+import router from "./features/employee/Routes";
+import authRouter from "./features/auth/Routes";
 import envConfig from "./config/EnvConfig";
 import connectDB from "./db/DbConnect";
 const app= express();
@@ -13,6 +12,6 @@ connectDB()
 
 app.use("/",router );
 app.use('/api/auth', authRouter)
-app.listen(4000,()=>{
-    console.log("server is running on port http://localhost4000");
+app.listen(port,()=>{
+    console.log("server is running on port http://localhost:"+port);
 })

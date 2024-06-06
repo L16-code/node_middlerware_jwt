@@ -1,10 +1,11 @@
-import employeeServices from "./employeeServices";
+import employeeServices from "./Services";
 import express from 'express';
 
 export const createEmployee = async (request: express.Request, response: express.Response) => {
     try {
         const { name, email, mobile, dob, doj } = request.body;
-        const result = await employeeServices.createEmployee(name, email, mobile, dob, doj)
+        const employeeData = { name, email, mobile, dob, doj };
+        const result = await employeeServices.createEmployee(employeeData)
         response.status(201).json(result)
     } catch (error) {
         response.status(400).json(error)

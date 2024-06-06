@@ -1,6 +1,4 @@
 import env from "../../env.json";
-// import env from
-
 interface IEnvConfig {
     mongoURL: string;
     host: string;
@@ -8,10 +6,10 @@ interface IEnvConfig {
     secretKey: string;
 }
 
-const envConfig = (): IEnvConfig => {
+const EnvConfig = (): IEnvConfig => {
     const nodeEnv = (process.env.NODE_ENV as keyof typeof env) || "local";
 
     return env[nodeEnv];
 };
 
-export default envConfig; 
+export default EnvConfig; 

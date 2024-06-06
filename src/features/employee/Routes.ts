@@ -1,9 +1,9 @@
 import  express from "express";
 import verifyToken from "../../middleware/authMiddleware";
 import { validateRequest } from "../../middleware/validations";
-import { employeeIdSchema, employeeSchema, employeeUpdateSchema } from "./employeeValidations";
+import { employeeIdSchema, employeeSchema, employeeUpdateSchema } from "./Validations";
 import HandleErrors from "../../middleware/hndleErrors";
-import { createEmployee, deleteEmployee, getAllEmployees, getEmployee, updateEmployee } from "./employeecontroller";
+import { createEmployee, deleteEmployee, getAllEmployees, getEmployee, updateEmployee } from "./Controller"
 const router = express.Router();
 
 router.get('/employee',verifyToken,HandleErrors(getAllEmployees))

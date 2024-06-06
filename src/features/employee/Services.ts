@@ -1,14 +1,20 @@
-import { EmployeeModel } from "./EmployeeModel";
-
+// import { EmployeeModel } from "./EmployeeModel";
+import { EmployeeModel } from "./Model";
+interface EmployeeData{
+    name:string;
+    email:string;
+    mobile:number;
+    dob:string;
+    doj:string;
+}
 const response: {
     message: string;
     data?: any;
     success: boolean;
 } = { message: "", success: false };
 class EmployeeService{
-    async createEmployee(name:string, email:string, mobile:number, dob:string ,doj:string) {
-        const employee = new EmployeeModel({ name,email,mobile,dob,doj
-        });
+    async createEmployee(employeeData: EmployeeData){
+        const employee = new EmployeeModel(employeeData);
         const res=await employee.save();
         if(res){
             response.success=true;

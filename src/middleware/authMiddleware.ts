@@ -1,13 +1,12 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt, { JwtPayload } from 'jsonwebtoken';
-// import envConfig from '../config/EnvConfig';
-import EnvConfig from '../config/EnvConfig';
+import envConfig from '../config/EnvConfig';
 
 interface CustomRequest extends Request {
     userId?: string | JwtPayload;
 }
 
-const env = EnvConfig();
+const env = envConfig();
 const SecretKey=env.secretKey;
 const verifyToken = (req: CustomRequest, res: Response, next: NextFunction): void => {
     const token = req.header('Authorization');
