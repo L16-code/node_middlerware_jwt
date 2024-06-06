@@ -1,7 +1,7 @@
 import  express from "express";
 import mongoose from "mongoose";
-import router from "./features/employee/routes";
-import authRouter from "./features/auth/routes/auth";
+import router from "./features/employee/employeeRoutes";
+import authRouter from "./features/auth/authRoutes";
 import envConfig from "./config/EnvConfig";
 import connectDB from "./db/DbConnect";
 const app= express();

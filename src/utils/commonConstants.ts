@@ -1,0 +1,1 @@
+export const MOBILE_LENGTH_REGEX=/^[0-9]{10}$/;
